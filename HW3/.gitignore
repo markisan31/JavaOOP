@@ -28,3 +28,4 @@ hs_err_pid*
 target/
 out
 HW3.iml
+.DS_store
