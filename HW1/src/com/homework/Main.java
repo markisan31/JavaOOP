@@ -36,6 +36,8 @@ public class Main {
             System.out.println(String.format("Circle area: %.2f, Circle perimeter: %.2f", circle_area, circle_perimeter));
             System.out.println(String.format("Square area: %.2f, Square perimeter: %.2f", square_area, square_perimeter));
         }
+
+        reader.close();
     }
 
     public static void second_task() throws IOException {
@@ -63,6 +65,8 @@ public class Main {
 
         }
 
+        reader.close();
+
 
     }
 
@@ -80,6 +84,8 @@ public class Main {
         } else {
             System.out.println("cold!");
         }
+
+        reader.close();
 
     }
 }
