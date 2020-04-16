@@ -7,12 +7,15 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        first_task();
+//        first_task();
         System.out.println();
-	    second_task();
+//	    second_task();
         System.out.println();
         third_task();
     }
+
+
+    /// First task
 
     public static void first_task() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -25,20 +28,30 @@ public class Main {
             System.out.println("Can't handle numbers less than 1");
         } else {
 
-            double circle_area = Math.pow(radius, 2) * Math.PI;
-
-            double circle_perimeter = 2 * Math.PI * radius;
-
-            double square_perimeter = 2 * radius * 4;
-
-            double square_area = Math.pow(radius * 2, 2);
-
-            System.out.println(String.format("Circle area: %.2f, Circle perimeter: %.2f", circle_area, circle_perimeter));
-            System.out.println(String.format("Square area: %.2f, Square perimeter: %.2f", square_area, square_perimeter));
+            System.out.println(String.format("Circle area: %.2f, Circle perimeter: %.2f", circle_area(radius), circle_perimeter(radius)));
+            System.out.println(String.format("Square area: %.2f, Square perimeter: %.2f", square_area(radius), square_perimeter(radius)));
         }
 
         reader.close();
     }
+
+    public static double circle_area (int radius){
+        return Math.pow(radius, 2) * Math.PI;
+    }
+
+    public static double circle_perimeter (int radius){
+        return 2 * Math.PI * radius;
+    }
+
+    public static double square_perimeter (int radius){
+        return 2 * radius * 4;
+    }
+    public static double square_area (int radius){
+        return Math.pow(radius * 2, 2);
+    }
+
+    /// Second task
+
 
     public static void second_task() throws IOException {
         double[] salaries = new double[5];
@@ -55,6 +68,14 @@ public class Main {
             System.out.println(String.format("Salary of %d person before changes is: %.0f", i + 1, salaries[i]));
         }*/
 
+        change_salaries(salaries);
+
+        reader.close();
+
+
+    }
+
+    public static void change_salaries(double [] salaries){
         for (int a = 0; a < salaries.length; a++) {
             if (salaries[a] < 500) {
                 salaries[a] = salaries[a] * 1.05;
@@ -64,28 +85,28 @@ public class Main {
             }
 
         }
-
-        reader.close();
-
-
     }
+
+    /// Third task
 
     public static void third_task() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Sisesta temperatuur: ");
 
-        int temp = Integer.parseInt(reader.readLine());
+        check_temperature(Integer.parseInt(reader.readLine()));
 
-        if (temp > 25)
+        reader.close();
+
+    }
+
+    public static void check_temperature(int temperature){
+        if (temperature > 25)
             System.out.println("hot!");
-        else if (temp > 10 && temp <= 25) {
+        else if (temperature > 10 && temperature <= 25) {
             System.out.println("warm!");
         } else {
             System.out.println("cold!");
         }
-
-        reader.close();
-
     }
 }
