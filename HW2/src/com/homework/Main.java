@@ -59,11 +59,7 @@ public class Main {
 
     private static void proposeHint(Scanner scanner, int userNumericAnswerForGuess, int randomNumber){
         String userAnswerForHint = scanner.nextLine();
-        int userNumericAnswerForHint = -1;
-        if (isDigit(userAnswerForHint)){
-            userNumericAnswerForHint = Integer.parseInt(userAnswerForHint);
-        }
-
+        
         if (userAnswerForHint.equals("y") || userAnswerForHint.equals("n")){
             if (userAnswerForHint.equals("y")){
                 System.out.println("Insert $2.00 for the hint!");
