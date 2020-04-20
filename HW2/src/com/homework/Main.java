@@ -1,7 +1,6 @@
 package com.homework;
 
 
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,21 +12,19 @@ public class Main {
         int randomNumber = new Random().nextInt(100000);
         System.out.println("Want to win a million dollars?\nIf so, guess the winning number (a number between 0 and 100000).");
         guessProcess(scanner, randomNumber);
-
-
     }
 
-    private static void guessProcess(Scanner scanner, int randomNumber){
+    private static void guessProcess(Scanner scanner, int randomNumber) {
         System.out.println("Insert $1.00 and enter your number or 'q' to quit: ");
         String userAnswerForGuess = scanner.nextLine();
         int userNumericAnswerForGuess = -1;
-        if (isDigit(userAnswerForGuess)){
+        if (isDigit(userAnswerForGuess)) {
             userNumericAnswerForGuess = Integer.parseInt(userAnswerForGuess);
         }
-        if (userAnswerForGuess.equals("q")){
-            System.out.println(String.format("You lost $%d.00. Thanks for playing. Come again!",dollarsSpent));
+        if (userAnswerForGuess.equals("q")) {
+            System.out.println(String.format("You lost $%d.00. Thanks for playing. Come again!", dollarsSpent));
             System.exit(0);
-        } else if (userNumericAnswerForGuess != -1){
+        } else if (userNumericAnswerForGuess != -1) {
             if (userNumericAnswerForGuess > -1 && userNumericAnswerForGuess < 100000) {
                 if (Integer.parseInt(userAnswerForGuess) == randomNumber) {
                     System.out.println("You WIN $1 000 000. That's was awesome!");
@@ -57,14 +54,14 @@ public class Main {
     }
 
 
-    private static void proposeHint(Scanner scanner, int userNumericAnswerForGuess, int randomNumber){
+    private static void proposeHint(Scanner scanner, int userNumericAnswerForGuess, int randomNumber) {
         String userAnswerForHint = scanner.nextLine();
-        
-        if (userAnswerForHint.equals("y") || userAnswerForHint.equals("n")){
-            if (userAnswerForHint.equals("y")){
+
+        if (userAnswerForHint.equals("y") || userAnswerForHint.equals("n")) {
+            if (userAnswerForHint.equals("y")) {
                 System.out.println("Insert $2.00 for the hint!");
                 dollarsSpent += 2;
-                if (userNumericAnswerForGuess < randomNumber){
+                if (userNumericAnswerForGuess < randomNumber) {
                     System.out.println("Your number is too low!");
                     guessProcess(scanner, randomNumber);
                 } else {
@@ -79,7 +76,5 @@ public class Main {
             proposeHint(scanner, userNumericAnswerForGuess, randomNumber);
         }
     }
-
-
 
 }
