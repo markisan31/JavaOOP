@@ -22,7 +22,6 @@ public class Banana {
             return shelfLife() * this.baseValue * 0.95;
         }
         return shelfLife() * this.baseValue;
-
     }
 
     public Double shelfLife(){

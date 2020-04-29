@@ -20,15 +20,10 @@ public class Main {
         Banana b2 = new Banana(0.56, 3, "Cavendish banaan", 0.89);
         Banana b3 = new Banana(0.89, 6, "Cavendish banaan", 0.33);
 
-
         List<Banana> bananas = Arrays.asList(ib1, ib2, ib3, ib4, ib5, ib6, ib7, b1, b2, b3);
 
         for (Banana b : bananas){
             System.out.println(b);
         }
-
-
-
-
     }
 }
