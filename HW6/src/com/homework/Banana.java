@@ -1,6 +1,9 @@
 package com.homework;
 
-public class Banana {
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
+public abstract class Banana {
     private Double weight; //one banana weight in kg
     private Integer degreeOfMaturity; // 0 - 10
     private String bananaSort;
@@ -24,19 +27,19 @@ public class Banana {
         return shelfLife() * this.baseValue;
     }
 
-    public Double shelfLife(){
-        return (double) (10 - getDegreeOfMaturity());
-    }
+    public abstract Double shelfLife();
 
     @Override
     public String toString() {
-        return "Banana{" +
-                "weight=" + weight +
-                ", degreeOfMaturity=" + degreeOfMaturity +
+        NumberFormat formatter = new DecimalFormat("#0.00");
+        return
+                "weight=" + weight + "kg" +
+                ", degreeOfMaturity=" + degreeOfMaturity + " days" +
                 ", bananaSort='" + bananaSort + '\'' +
-                ", baseValue=" + baseValue +
-                ", shelfLife=" + shelfLife() +
-                ", price=" + calculatePrice() +
-                '}';
+                ", baseValue=" + baseValue + "€" +
+                ", shelfLife=" + shelfLife() + " days" +
+                ", price=" + formatter.format(calculatePrice()) + "€"
+                ;
     }
+
 }
